@@ -17,7 +17,6 @@ class OrderDetailSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         DB::table('order_details')->truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
         DB::table('order_details')->insert([
                 [
                     'order_id' => 1,
@@ -200,5 +199,6 @@ class OrderDetailSeeder extends Seeder
                 ]
             ]
         );
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

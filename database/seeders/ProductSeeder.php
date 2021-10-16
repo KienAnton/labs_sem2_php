@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ProductSeeder extends Seeder
 {
@@ -15,10 +16,9 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        \Illuminate\Support\Facades\DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        \Illuminate\Support\Facades\DB::table('products')->truncate();
-        \Illuminate\Support\Facades\DB::statement('SET FOREIGN_KEY_CHECKS = 1');
-        \Illuminate\Support\Facades\DB::table('products')->insert([
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        DB::table('products')->truncate();
+        DB::table('products')->insert([
             [
                 'id' => 1,
                 'price' => 555550,
@@ -131,6 +131,6 @@ class ProductSeeder extends Seeder
                 ],
             ]
         );
-
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
